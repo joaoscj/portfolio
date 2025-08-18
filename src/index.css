@@ -1,0 +1,242 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Java-inspired Design System for Portfolio */
+
+@layer base {
+  :root {
+    /* Base colors */
+    --background: 240 10% 98%;
+    --foreground: 220 15% 15%;
+
+    /* Java-inspired primary colors (Golden) */
+    --primary: 45 93% 47%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 48 100% 67%;
+
+    /* Secondary Java blue */
+    --secondary: 213 73% 42%;
+    --secondary-foreground: 0 0% 100%;
+
+    /* Card colors with subtle transparency */
+    --card: 0 0% 100%;
+    --card-foreground: 220 15% 15%;
+    --card-border: 220 13% 91%;
+
+    /* Muted colors */
+    --muted: 220 14% 96%;
+    --muted-foreground: 220 9% 46%;
+
+    /* Accent colors */
+    --accent: 24 95% 65%;
+    --accent-foreground: 220 15% 15%;
+
+    /* Status colors */
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    
+    --success: 142 71% 45%;
+    --success-foreground: 0 0% 100%;
+
+    /* Borders and inputs */
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 14 88% 55%;
+
+    /* Java gradients */
+    --gradient-java: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
+    --gradient-hero: linear-gradient(135deg, hsl(var(--primary) / 0.1), hsl(var(--secondary) / 0.1));
+    --gradient-card: linear-gradient(145deg, hsl(var(--card) / 0.8), hsl(var(--card) / 0.6));
+
+    /* Shadows */
+    --shadow-elegant: 0 10px 30px -10px hsl(var(--primary) / 0.2);
+    --shadow-card: 0 4px 20px -4px hsl(220 15% 15% / 0.1);
+    --shadow-glow: 0 0 40px hsl(var(--primary-glow) / 0.3);
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    /* Dark theme base */
+    --background: 220 20% 8%;
+    --foreground: 220 15% 95%;
+
+    /* Java colors adjusted for dark */
+    --primary: 45 93% 47%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 48 100% 67%;
+
+    --secondary: 213 73% 52%;
+    --secondary-foreground: 0 0% 100%;
+
+    /* Dark cards with subtle glow */
+    --card: 220 15% 12%;
+    --card-foreground: 220 15% 95%;
+    --card-border: 220 15% 20%;
+
+    /* Dark muted */
+    --muted: 220 15% 15%;
+    --muted-foreground: 220 9% 70%;
+
+    /* Dark accent */
+    --accent: 24 95% 65%;
+    --accent-foreground: 220 20% 8%;
+
+    /* Dark status */
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    
+    --success: 142 71% 45%;
+    --success-foreground: 0 0% 100%;
+
+    /* Dark borders */
+    --border: 220 15% 20%;
+    --input: 220 15% 20%;
+    --ring: 14 88% 55%;
+
+    /* Dark gradients */
+    --gradient-java: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
+    --gradient-hero: linear-gradient(135deg, hsl(var(--primary) / 0.15), hsl(var(--secondary) / 0.15));
+    --gradient-card: linear-gradient(145deg, hsl(var(--card) / 0.8), hsl(var(--card) / 0.6));
+
+    /* Dark shadows */
+    --shadow-elegant: 0 10px 30px -10px hsl(var(--primary) / 0.3);
+    --shadow-card: 0 4px 20px -4px hsl(0 0% 0% / 0.3);
+    --shadow-glow: 0 0 40px hsl(var(--primary-glow) / 0.4);
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    @apply bg-muted;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    @apply bg-border rounded-full;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-primary/50;
+  }
+
+  /* Smooth transitions for theme switching */
+  * {
+    transition: border-color 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+  }
+}
+
+@layer components {
+  /* Java-inspired animations */
+  .animate-java-glow {
+    animation: javaGlow 3s ease-in-out infinite alternate;
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.8s ease-out;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.6s ease-out;
+  }
+
+  /* Glass effect for cards */
+  .glass-card {
+    background: hsl(var(--card) / 0.8);
+    backdrop-filter: blur(12px);
+    border: 1px solid hsl(var(--border) / 0.5);
+  }
+}
+
+@layer utilities {
+  .text-gradient-java {
+    background: var(--gradient-java);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .bg-gradient-hero {
+    background: var(--gradient-hero);
+  }
+
+  .shadow-elegant {
+    box-shadow: var(--shadow-elegant);
+  }
+
+  .shadow-card {
+    box-shadow: var(--shadow-card);
+  }
+
+  .shadow-glow {
+    box-shadow: var(--shadow-glow);
+  }
+}
+
+@keyframes javaGlow {
+  0% { 
+    box-shadow: 0 0 20px hsl(var(--primary) / 0.2);
+  }
+  100% { 
+    box-shadow: 0 0 30px hsl(var(--primary) / 0.4);
+  }
+}
+
+@keyframes fadeIn {
+  from { 
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to { 
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from { 
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to { 
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
